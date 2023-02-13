@@ -69,12 +69,12 @@ const GetProducts = () => {
         )
       )}
 
-      <nav aria-label='Page navigation example mt-5'>
+      {/* <nav aria-label='Page navigation example mt-5'>
         <ul className='pagination justify-content-center'>
           <li className='page-item'><button className='page-link'><i class="bi bi-arrow-left"></i>Previous</button></li>
           <li className='page-item'><button className='page-link'>Next<i class="bi bi-arrow-right"></i></button></li>
         </ul>
-      </nav>
+      </nav> */}
       
     </div>
   </div>
