@@ -1,0 +1,67 @@
+h2, h3{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+html {
+  height: 100%;
+}
+
+nav {
+  background: linear-gradient(#343333, #67686a);
+}
+
+.footer {
+  background: linear-gradient(#343333, #67686a);
+  color: white;
+  padding: 9px;
+}
+
+label {
+  text-align: left;
+}
+
+.col {
+  align-content: center;
+}
+
+.col-6 {
+  text-align: left;
+  position: absolute;
+  top: 52%;
+  left: 50%;
+  width: 650px;
+  padding: 10px 40px 40px 40px;
+  transform: translate(-50%, -50%);
+  background: white;
+  box-sizing: border-box;
+  box-shadow: 0 15px 25px rgba(0,0,0,.6);
+  border-radius: 10px;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+}
+
+.center {
+  text-align: center;
+}
+
+form {
+  text-align: center;
+}
+
+.form-group {
+  text-align: center;
+}
+
+.input{
+  margin-left: 33.33%;
+  }
+
+.about {
+  text-align: justify;
+}
