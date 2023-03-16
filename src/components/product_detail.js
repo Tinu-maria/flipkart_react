@@ -23,27 +23,32 @@ const ProductDetail = () => {
     const deleteProduct = async() => {
         /* Deletes a particular product */
         await axios.delete(`http://127.0.0.1:8000/api/productset/${id}/`)
+        // NotificationManager.success("Product is deleted")
         navigate('/product/get')
     }
 
     return (
         <div className="container">
-            <div className="row">
-                <div className="col-3"></div>
-                <div className="col-6">
-                    <h3>{product.name}</h3>
+            <div className="row mt-5">
+                <div className="col-1"></div>
+                <div className="col-10 mt-4">
+
+                    <div className="column1">
+                        <img src={product.image} alt="" height="250" width="250" />
+                    </div>
+                    
+                    <div className="column2 mt-4">
+                        <h5 className="mb-3">{product.name}</h5>
                 
-                    <div className="center">
-                        <img src={product.image} alt="" height="200" width="300" />
-                        <p className="mt-4">Rs.{product.price}</p>
-                        <p>{product.description}</p>
-
-                        <Link className="btn btn-secondary me-3" to={`/product/${product.id}/update`}>Update</Link>
-                        <Link className="btn btn-secondary me-3" onClick={() => deleteProduct(product.id)}>Delete</Link>
-
+                        <h5 className="mb-3">₹ {product.price}</h5>
+                        <p className="about mb-3">{product.description}</p>
+                        <div>
+                            <Link className="btn btn-dark me-3" to={`/product/${product.id}/update`}>Update</Link>
+                            <Link className="btn btn-dark me-3" onClick={() => deleteProduct(product.id)}>Delete</Link>
+                        </div>
                     </div>
                 </div>
-                <div className="col-3"></div>
+                <div className="col-1"></div>
             </div>
         </div>
     )

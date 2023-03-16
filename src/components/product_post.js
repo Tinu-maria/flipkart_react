@@ -1,4 +1,4 @@
-import './product.css';
+import './css/product.css';
 import {useState} from "react";
 import axios from "axios";
 import {useNavigate} from 'react-router-dom';
@@ -29,18 +29,20 @@ const PostProducts = () => {
       data: formfield
     }).then(res => {
         console.log(res.data);
+        // NotificationManager.success("Product is added")
         navigate('/product/get')
       })
   }
   
   return (  
   <div className="container">
-    <div className="row">
+    <div className="row mt-5">
       <div className="col-3"></div>
-      <div className="col-6">
+      <div className="col-6 p-5">
 
-        <h2>Add Product</h2>
-        <label>Browse Product Image :</label>
+        <h2 className='mt-2'>Add Product</h2>
+        <hr className='mb-4'/>
+        <label className='mb-1'>Browse Product Image :</label>
 
         <form action="">
             <input className='form-control mb-3' 
@@ -59,7 +61,10 @@ const PostProducts = () => {
             placeholder='Enter Product Description' value={description} 
             onChange={(e)=> setDescription(e.target.value)}/>
 
-            <button onClick={PostProductsInfo} className='btn btn-secondary mt-3'>Upload</button>
+          <div class="center">
+            <button onClick={PostProductsInfo} className='btn btn-dark mt-3'>Submit</button>
+          </div>
+
         </form>
         
       </div>

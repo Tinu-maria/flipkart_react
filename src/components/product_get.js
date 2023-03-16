@@ -1,18 +1,23 @@
-import './product.css';
+import './css/product.css';
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom"; 
 
 const GetProducts = () => {
 
-  const [product, setProduct] = useState([])
+  const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
   const [searchName, setSearchName] = useState("");
+
+  const [prevurl, setPrevurl] = useState()
+  const [nexturl, setNexturl] = useState()
 
   /* Obtains list of all products */
   const GetProductsInfo = async() =>{
     const res = await axios.get(`http://localhost:8000/api/product/`)
-    setProduct(res.data)
+    setProduct(res.data.results)
+    setPrevurl(res.data.previous)
+    setNexturl(res.data.next)
   }
   
   useEffect(() => {
@@ -22,8 +27,8 @@ const GetProducts = () => {
   /* Search for particular product */
   const SearchProductInfo = async () => {
     setLoading(true);
-    const response = await axios.get(`http://localhost:8000/api/product/search`);
-    setProduct(response.data);
+    const res = await axios.get(`http://localhost:8000/api/product/search`);
+    setProduct(res.data);
     setLoading(false);
   };
 
@@ -31,13 +36,22 @@ const GetProducts = () => {
     SearchProductInfo();
   },[])
 
+  /* Listt product with pagination */
+  const PaginationHolder = (url) => {
+    axios.get(url).then((res)=>{
+      setProduct(res.data.results)
+      setPrevurl(res.data.previous)
+      setNexturl(res.data.next)
+    })
+  }
+
   return (  
   <div className="container">
     <div className="row">
 
-      <div className='input mt-4'><input
+      <div className='input mt-3'><input
         style={{ width: "30%", height: "40px" }}
-        type="text" className='form-control mb-3'
+        type="text" className='form-control mb-2'
         placeholder="Search..."
         onChange={(e) => setSearchName(e.target.value)}
       /></div>
@@ -57,24 +71,33 @@ const GetProducts = () => {
         .map((product, item) => 
           /* Added list code inside search code */
           <div className='column'>
-            <div class="card me-4 mb-3" >
-              <img className='ms-5 mt-4' src={product.image} alt="" height="200" width="250" />
+            <div className="mb-2" >
+              <img src={product.image} alt="" height="200" width="250" />
               <div class="card-body">
-                <b className='mt-3'>{product.name}</b>
-                <p>Rs. {product.price}</p>            
-                <Link className="btn btn-secondary mb-3" to={`/product/${product.id}/`}>View Detail</Link>
+                <Link to={`/product/${product.id}/`}>
+                  <p>{product.name}</p>
+                </Link>
+                <h6 className='mb-0'>₹ {product.price}</h6>            
               </div>
             </div>      
           </div>
         )
       )}
 
-      {/* <nav aria-label='Page navigation example mt-5'>
+      <div aria-label='Page navigation example mt-5'>
         <ul className='pagination justify-content-center'>
-          <li className='page-item'><button className='page-link'><i class="bi bi-arrow-left"></i>Previous</button></li>
-          <li className='page-item'><button className='page-link'>Next<i class="bi bi-arrow-right"></i></button></li>
+          {prevurl &&
+          <li className='page-item'><button className='btn btn-dark' onClick={()=>PaginationHolder(prevurl)}>
+            <i class="bi bi-arrow-left"></i> Previous</button>
+          </li>
+        }
+        {nexturl &&
+          <li className='page-item'><button className='btn btn-dark' onClick={()=>PaginationHolder(nexturl)}>
+            Next <i class="bi bi-arrow-right"></i></button>
+          </li>
+        }
         </ul>
-      </nav> */}
+      </div>
       
     </div>
   </div>

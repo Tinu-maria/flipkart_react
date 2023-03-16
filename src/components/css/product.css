@@ -1,0 +1,140 @@
+h2, h4{
+  margin-top: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+html {
+  height: 100%;
+}
+
+nav {
+  background: linear-gradient(#343333, #67686a);
+}
+
+.left-navbar{
+  font-size: large;
+  margin-left: 20%;
+}
+
+.right-navbar{
+  font-size: large;
+  margin-left: 60%;
+}
+
+.nav-link{
+  font-size: large;
+}
+
+.footer {
+  background: linear-gradient(#343333, #67686a);
+  color: white;
+  padding: 9px;
+}
+
+label {
+  text-align: left;
+}
+
+.col {
+  align-content: center;
+}
+
+.col-6 {
+  text-align: left;
+  padding: 2%;
+  background-color: whitesmoke;
+  border-radius: 10px;
+  border-width: 1px;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+
+.center {
+  text-align: center;
+}
+
+form {
+  text-align: left;
+}
+
+.form-group {
+  text-align: center;
+}
+
+.input{
+  margin-left: 33.33%;
+  }
+
+.about {
+  text-align: justify;
+}
+
+a{
+  text-decoration: none;
+  color: black;
+}
+
+a:hover, a:active {
+  color: gray;
+}
+
+li{
+  font-size: 110%;
+}
+
+.center-navbar {
+  width:30%;
+  margin-left: 35%;
+}
+
+.justify{
+  text-align: left;
+  height: 60vh;
+}
+
+.card h4 {
+  text-align: center;
+}
+
+.card-body{
+text-align: left;
+}
+
+.justify {
+  text-align: left;
+}
+
+.column1 {
+  float: left;
+  width: 30%;
+  padding: 5px;
+  text-align: left;
+}
+
+.column2 {
+  float: left;
+  width: 70%;
+  padding: 5px;
+  text-align: left;
+}
+
+.textcolor {
+  color: powderblue;
+}
+
+.textcolor:hover {
+  color: powderblue;
+}
+
+#collasible-nav-dropdown{
+  color: white;
+}
+
+.left{
+  float: left;
+}

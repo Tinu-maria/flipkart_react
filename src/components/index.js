@@ -4,4 +4,7 @@ export { default as GetProducts } from "./product_get";
 export { default as PostProducts } from "./product_post";
 export { default as ProductDetail } from "./product_detail";
 export { default as ProductUpdate } from "./product_update";
-export { default as Login } from "./login";
+export { default as About } from "./about";
+export { default as CustomerList } from "./customer";
+export { default as OrdersList } from "./orders";
+export { default as RatingReview } from "./ratingreview";

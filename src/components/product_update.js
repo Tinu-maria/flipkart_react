@@ -2,6 +2,7 @@ import axios from "axios";
 import React, {useState, useEffect} from "react";
 import {useNavigate} from 'react-router-dom';
 import { useParams } from "react-router-dom";
+// import { NotificationManager } from 'react-notifications';
 
 const ProductUpdate = () => {
 
@@ -43,21 +44,22 @@ const ProductUpdate = () => {
             data: formfield
             }).then(res => {
                 console.log(res.data);
+                // NotificationManager.success("Product is updated")
                 navigate('/product/get')
             })
         }
     
     return(
         <div className="container">
-            <div className="row">
+            <div className="row mt-3">
                 <div className="col-3"></div>
-                <div className="col-6">
+                <div className="col-6 mt-5">
                     
-                    <div className="center mt-3">
+                    <div className="center">
                     <img src={image} height="150" width="200" alt="" />
                     
                     <div className="form-group">
-                    <label className="column">Upload Product Image</label>
+                    <label className="left ms-1 mb-1">Upload Product Image :</label>
                         <input className='form-control mb-3' 
                         type="file" src={image} 
                         onChange={(e)=> setImage(e.target.files[0])}/>
@@ -73,14 +75,15 @@ const ProductUpdate = () => {
                         onChange={(e)=> setPrice(e.target.value)}/>
                     </div>
                     <div className="form-group">
-                        <textarea className='form-control' type="text" 
+                        <textarea rows="3" className='form-control' type="text" 
                         placeholder='Enter Product Description' value={description} 
                         onChange={(e)=> setDescription(e.target.value)}/>
                     </div>
 
-                    <button onClick={UpdateProductInfo} className='btn btn-secondary mt-3'>Edit</button>
+                    <div class="center">
+                    <button onClick={UpdateProductInfo} className='btn btn-dark mt-3'>Submit</button>
                     </div>
-
+                </div>
                 </div>
                 <div className="col-3"></div>
             </div>
